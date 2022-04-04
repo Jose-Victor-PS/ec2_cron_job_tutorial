@@ -1,0 +1,23 @@
+service: tutorial-initializer
+
+provider:
+  name: aws
+  stage: development
+  runtime: python3.6
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ec2:DescribeInstances
+        - ec2:StartInstances
+      Resource: "*"
+
+functions:
+  initializer:
+    handler: main.handler
+    events:
+      - schedule:
+          enabled: true
+          rate: cron(0 12 ? * MON-FRI *)
+    memorySize: 128
+    timeout: 30
