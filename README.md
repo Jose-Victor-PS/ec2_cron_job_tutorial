@@ -1,4 +1,4 @@
-#About this repo
+# About this repo
 
 This project is about setting up a scheduled job to run on a EC2 instance using Terraform, Ansible, Serverless Framework and Python.
 
